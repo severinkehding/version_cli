@@ -52,7 +52,7 @@ class StageReleaseTask extends BaseReleaseTask {
               public repositoryOwner: string,
               public repositoryName: string) {
     super(new GitClient(projectDir,
-      `git@github.apofactory.de/${repositoryOwner}/${repositoryName}.git`));
+      `https:/github.com/${repositoryOwner}/${repositoryName}.git`));
 
     this.packageJsonPath = join(projectDir, 'package.json');
     this.packageJson = JSON.parse(readFileSync(this.packageJsonPath, 'utf-8'));
@@ -165,5 +165,5 @@ class StageReleaseTask extends BaseReleaseTask {
 /** Entry-point for the release staging script. */
 if (require.main === module) {
   console.log("asdasdasd asd asdyyyyyyyyyyyyyyyyyyyy",join(__dirname, '../../'));
-  new StageReleaseTask(join(__dirname, '../../'), 'apoBank', 'vuejs-components').run();
+  new StageReleaseTask(join(__dirname, '../../'), 'severinkehding', 'version_cli').run();
 }
