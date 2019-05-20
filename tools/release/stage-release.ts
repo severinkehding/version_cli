@@ -90,7 +90,7 @@ class StageReleaseTask extends BaseReleaseTask {
     const publishBranch = this.switchToPublishBranch(newVersion);
 
     //this.verifyLocalCommitsMatchUpstream(publishBranch);
-    await this._verifyPassingGithubStatus(publishBranch);
+    //await this._verifyPassingGithubStatus(publishBranch);
 
     if (!this.git.checkoutNewBranch(stagingBranch)) {
       console.error(chalk.red(`Could not create release staging branch: ${stagingBranch}. Aborting...`));
@@ -103,7 +103,7 @@ class StageReleaseTask extends BaseReleaseTask {
       `${chalk.italic('package.json')}`));
     console.log();
 
-    await promptAndGenerateChangelog(join(this.projectDir, CHANGELOG_FILE_NAME));
+    //await promptAndGenerateChangelog(join(this.projectDir, CHANGELOG_FILE_NAME));
 
     console.log();
     console.log(chalk.green(`  ✓   Updated the changelog in ` +
