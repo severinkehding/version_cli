@@ -1,0 +1,81 @@
+{
+  "name": "comp",
+  "version": "0.1.4",
+  "private": false,
+  "files": [
+    "dist/*",
+    "src/*",
+    "*.json",
+    "*.js"
+  ],
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test:e2e": "vue-cli-service test:e2e",
+    "test:unit": "vue-cli-service test:unit",
+    "testcrap": "ts-node --project tools/release/ tools/release/stage-release.ts",
+    "build-bundle": "vue-cli-service build --target lib --name vuejs-components src/index.ts"
+  },
+  "dependencies": {
+    "axios": "0.18.0",
+    "deepmerge": "3.2.0",
+    "i18n-iso-countries": "3.7.8",
+    "vee-validate": "2.2.7",
+    "vue": "2.6.10",
+    "vue-class-component": "6.3.2",
+    "vue-flag-icon": "1.0.6",
+    "vue-i18n": "8.11.2",
+    "vue-property-decorator": "7.3.0",
+    "vue-router": "3.0.6",
+    "vuetify": "1.5.14",
+    "vuetify-upload-button": "1.2.2",
+    "vuex": "3.1.1",
+    "vuex-class": "0.3.2"
+  },
+  "devDependencies": {
+    "@kazupon/vue-i18n-loader": "0.3.0",
+    "@octokit/rest": "15.9.4",
+    "@types/chai": "4.1.7",
+    "@types/chalk": "2.2.0",
+    "@types/inquirer": "6.0.2",
+    "@types/mocha": "5.2.6",
+    "@types/node": "^12.0.2",
+    "@types/webpack": "4.4.31",
+    "@vue/cli-plugin-e2e-cypress": "3.7.0",
+    "@vue/cli-plugin-typescript": "3.7.0",
+    "@vue/cli-plugin-unit-mocha": "3.7.0",
+    "@vue/cli-service": "3.7.0",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "chai": "4.2.0",
+    "chalk": "2.4.2",
+    "conventional-changelog": "^3.0.5",
+    "husky": "^2.3.0",
+    "inquirer": "6.3.1",
+    "lint-staged": "8.1.7",
+    "node-sass": "4.12.0",
+    "sass-loader": "7.1.0",
+    "stylus": "0.54.5",
+    "stylus-loader": "3.0.2",
+    "ts-node": "3.3.0",
+    "tslib": "^1.9.3",
+    "typescript": "3.4.5",
+    "vue-cli-plugin-i18n": "0.5.2",
+    "vue-cli-plugin-vuetify": "0.4.6",
+    "vue-template-compiler": "2.6.10",
+    "vuetify-loader": "1.2.2"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "vue-cli-service lint",
+      "git add"
+    ],
+    "*.vue": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
+}
