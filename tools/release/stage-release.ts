@@ -89,8 +89,8 @@ class StageReleaseTask extends BaseReleaseTask {
     // Branch that will be used to stage the release for the new selected version.
     const publishBranch = this.switchToPublishBranch(newVersion);
 
-    //this.verifyLocalCommitsMatchUpstream(publishBranch);
-    //await this._verifyPassingGithubStatus(publishBranch);
+    this.verifyLocalCommitsMatchUpstream(publishBranch);
+    await this._verifyPassingGithubStatus(publishBranch);
 
     if (!this.git.checkoutNewBranch(stagingBranch)) {
       console.error(chalk.red(`Could not create release staging branch: ${stagingBranch}. Aborting...`));
@@ -164,6 +164,5 @@ class StageReleaseTask extends BaseReleaseTask {
 
 /** Entry-point for the release staging script. */
 if (require.main === module) {
-  console.log("asdasdasd asd asdyyyyyyyyyyyyyyyyyyyy",join(__dirname, '../../'));
   new StageReleaseTask(join(__dirname, '../../'), 'severinkehding', 'version_cli').run();
 }
