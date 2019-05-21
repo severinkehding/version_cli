@@ -52,7 +52,7 @@ class StageReleaseTask extends BaseReleaseTask {
               public repositoryOwner: string,
               public repositoryName: string) {
     super(new GitClient(projectDir,
-      `https:/github.com/${repositoryOwner}/${repositoryName}.git`));
+      `https://github.com/${repositoryOwner}/${repositoryName}.git`));
 
     this.packageJsonPath = join(projectDir, 'package.json');
     this.packageJson = JSON.parse(readFileSync(this.packageJsonPath, 'utf-8'));
@@ -84,13 +84,13 @@ class StageReleaseTask extends BaseReleaseTask {
 
     // Ensure there are no uncommitted changes. Checking this before switching to a
     // publish branch is sufficient as unstaged changes are not specific to Git branches.
-    this.verifyNoUncommittedChanges();
+    //this.verifyNoUncommittedChanges();
 
     // Branch that will be used to stage the release for the new selected version.
     const publishBranch = this.switchToPublishBranch(newVersion);
 
     this.verifyLocalCommitsMatchUpstream(publishBranch);
-    //await this._verifyPassingGithubStatus(publishBranch);
+    await this._verifyPassingGithubStatus(publishBranch);
 
     if (!this.git.checkoutNewBranch(stagingBranch)) {
       console.error(chalk.red(`Could not create release staging branch: ${stagingBranch}. Aborting...`));
