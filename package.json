@@ -1,6 +1,6 @@
 {
   "name": "comp",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "private": false,
   "files": [
     "dist/*",
@@ -14,7 +14,7 @@
     "lint": "vue-cli-service lint",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit",
-    "testcrap": "ts-node --project tools/release/ tools/release/stage-release.ts",
+    "stage-release": "ts-node --project tools/release/ tools/release/stage-release.ts",
     "build-bundle": "vue-cli-service build --target lib --name vuejs-components src/index.ts"
   },
   "dependencies": {
