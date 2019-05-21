@@ -14,7 +14,7 @@
     "lint": "vue-cli-service lint",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit",
-    "stage-release": "ts-node --project tools/release/ tools/release/stage-release.ts",
+    "stage-release": "ts-node-dev --inspect --project tools/release/ tools/release/stage-release.ts",
     "build-bundle": "vue-cli-service build --target lib --name vuejs-components src/index.ts"
   },
   "dependencies": {
@@ -58,6 +58,7 @@
     "stylus": "0.54.5",
     "stylus-loader": "3.0.2",
     "ts-node": "3.3.0",
+    "ts-node-dev": "^1.0.0-pre.39",
     "tslib": "^1.9.3",
     "typescript": "3.4.5",
     "vue-cli-plugin-i18n": "0.5.2",
